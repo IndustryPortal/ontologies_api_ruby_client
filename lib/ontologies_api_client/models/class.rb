@@ -57,7 +57,7 @@ module LinkedData
 
         def self.find(id, ontology, params = {})
           ontology = HTTP.get(ontology, params)
-          ontology.explore.class(CGi.escape(id))
+          ontology.explore.class(CGI.escape(id))
         end
 
         def self.search(*args)

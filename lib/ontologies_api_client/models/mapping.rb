@@ -11,7 +11,7 @@ module LinkedData
         @media_type = "http://data.bioontology.org/metadata/Mapping"
 
         def self.find(id, params = {})
-          HTTP.get(mappings_url_prefix + CGi.escape(id), params)
+          HTTP.get(mappings_url_prefix + CGI.escape(id), params)
         end
 
         def delete

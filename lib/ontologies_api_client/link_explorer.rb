@@ -60,8 +60,13 @@ module LinkedData
         return url if values.nil? || values.empty?
         values = values.dup
         values = [values] unless values.is_a?(Array)
-        return url.gsub(/(\{.*?\})/) do
-          CGI.escape(values.shift)
+        escaped_value = CGI.escape(values.shift)
+        if url.match(/(\{.*?\})/)
+          url.gsub(/(\{.*?\})/) do
+            escaped_value
+          end
+        else
+          url + '/' + escaped_value
         end
       end
 
