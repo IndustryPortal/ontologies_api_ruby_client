@@ -1,4 +1,4 @@
-require 'uri'
+require 'CGI'
 require_relative 'http'
 
 module LinkedData
@@ -61,7 +61,7 @@ module LinkedData
         values = values.dup
         values = [values] unless values.is_a?(Array)
         return url.gsub(/(\{.*?\})/) do
-          URI.escape(values.shift, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+          CGI.escape(values.shift)
         end
       end
 
