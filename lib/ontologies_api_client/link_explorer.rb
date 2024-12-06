@@ -1,4 +1,4 @@
-require 'CGI'
+require 'cgi'
 require_relative 'http'
 
 module LinkedData
